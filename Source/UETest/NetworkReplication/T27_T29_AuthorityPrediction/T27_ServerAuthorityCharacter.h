@@ -25,6 +25,11 @@ public:
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 
+	// 标准 Server RPC 三件套：UFUNCTION + WithValidation + _Implementation
+	// 声明放 public ，便于外部 / 测试直接调用 _Implementation 与 _Validate
+	UFUNCTION(Server, Reliable, WithValidation)
+	void ServerRequestTakeDamage(int32 T27_Amount);
+
 protected:
 	UPROPERTY(ReplicatedUsing = OnRep_T27_Health, VisibleAnywhere)
 	int32 T27_Health;
@@ -34,8 +39,4 @@ protected:
 
 	// Client 按 F 时本地调用 -> 内部转发到 ServerRequestTakeDamage
 	void T27_OnPressF();
-
-	// 标准 Server RPC 三件套：UFUNCTION + WithValidation + _Implementation
-	UFUNCTION(Server, Reliable, WithValidation)
-	void ServerRequestTakeDamage(int32 T27_Amount);
 };
