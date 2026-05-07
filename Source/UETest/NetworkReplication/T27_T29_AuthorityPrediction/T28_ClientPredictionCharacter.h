@@ -24,6 +24,10 @@ public:
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 
+	// RPC 公开，便于测试直接调 _Implementation / _Validate
+	UFUNCTION(Server, Reliable, WithValidation)
+	void ServerRequestTakeDamage(int32 T28_Amount);
+
 protected:
 	UPROPERTY(ReplicatedUsing = OnRep_T28_Health, VisibleAnywhere)
 	int32 T28_Health;
@@ -32,7 +36,4 @@ protected:
 	void OnRep_T28_Health(int32 T28_OldHealth);
 
 	void T28_OnPressF();
-
-	UFUNCTION(Server, Reliable, WithValidation)
-	void ServerRequestTakeDamage(int32 T28_Amount);
 };

@@ -23,15 +23,16 @@ public:
 	virtual void BeginPlay() override;
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
+	// Server 端业务函数：刷新光环（值可能不变）
+	// 公开以便其他系统 / 测试直接调用
+	void T8_ServerRefreshAura(int32 NewStacks);
+
 protected:
 	UPROPERTY(ReplicatedUsing = OnRep_T8_AuraStacks, VisibleAnywhere)
 	int32 T8_AuraStacks;
 
 	UFUNCTION()
 	void OnRep_T8_AuraStacks(int32 T8_OldStacks);
-
-	// Server 端业务函数：刷新光环（值可能不变）
-	void T8_ServerRefreshAura(int32 NewStacks);
 
 private:
 	FTimerHandle T8_TickTimer;
