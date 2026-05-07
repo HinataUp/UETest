@@ -11,7 +11,9 @@ public class UETest : ModuleRules
 		PublicDependencyModuleNames.AddRange(new string[] {
 			"Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput", "NetCore",
 			// GAS 三件套
-			"GameplayAbilities", "GameplayTags", "GameplayTasks"
+			"GameplayAbilities", "GameplayTags", "GameplayTasks",
+			// 渲染模块所需 ：Global Shader / Compute Shader / RDG / SceneCapture
+			"RenderCore", "RHI", "Renderer", "Projects"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
