@@ -13,7 +13,10 @@ public class UETest : ModuleRules
 			// GAS 三件套
 			"GameplayAbilities", "GameplayTags", "GameplayTasks",
 			// 渲染模块所需 ：Global Shader / Compute Shader / RDG / SceneCapture
-			"RenderCore", "RHI", "Renderer", "Projects"
+			"RenderCore", "RHI", "Renderer", "Projects",
+			// Part 3 UI / AI / 动画
+			"UMG", "Slate", "SlateCore",
+			"AIModule", "NavigationSystem"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
