@@ -16,7 +16,10 @@ public class UETest : ModuleRules
 			"RenderCore", "RHI", "Renderer", "Projects",
 			// Part 3 UI / AI / 动画
 			"UMG", "Slate", "SlateCore",
-			"AIModule", "NavigationSystem"
+			"AIModule", "NavigationSystem",
+			// Part 4 ：Niagara VFX / MovieScene Sequencer
+			"Niagara",
+			"LevelSequence", "MovieScene"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
